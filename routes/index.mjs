@@ -33,6 +33,8 @@ router.get('/create', async (ctx, next) => {
     //客户端指定的随机地址
     fp.headers['X-forwarded-for'] = RandomAddress.randomAddress;
 
+    console.log("当前 ip 是 ", RandomAddress.randomAddress);
+
 
     const res = await fetch('https://www.bing.com/turing/conversation/create', {
         headers: fp.headers,
