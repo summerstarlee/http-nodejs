@@ -6435,7 +6435,6 @@ class RandomAddress{
     }
 }
 
-let pa = new URLSearchParams(window.location.search);
 let ipc = ipList[getRndInteger(0,ipList.length)];
 let ipb = ipc.split('->');
 let startIps = ipb[0].split('.');
