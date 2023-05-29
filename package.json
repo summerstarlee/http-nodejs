@@ -8,6 +8,7 @@
     "start": "node server.mjs"
   },
   "dependencies": {
+    "bing-chat": "^0.2.3",
     "koa": "^2.14.2",
     "koa-router": "^12.0.0",
     "node-fetch": "^3.3.1"

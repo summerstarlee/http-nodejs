@@ -10,6 +10,13 @@ accepts@^1.3.5:
     mime-types "~2.1.34"
     negotiator "0.6.3"
 
+bing-chat@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.npmmirror.com/bing-chat/-/bing-chat-0.2.3.tgz#aba19c55e5dfbe12ceae6e26cbbaf405c146703f"
+  integrity sha512-q9JIGqrrEhBEgIhTdtawvxcwQO5sdhMN3uATbLxpd52sH0+Jm7QhtsaodlLUbQgEQGo+YXfFPWWpK5lWMXGvHw==
+  dependencies:
+    ws "^8.13.0"
+
 cache-content-type@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmmirror.com/cache-content-type/-/cache-content-type-1.0.1.tgz#035cde2b08ee2129f4a8315ea8f00a00dba1453c"
@@ -343,6 +350,11 @@ web-streams-polyfill@^3.0.3:
   version "3.2.1"
   resolved "https://registry.npmmirror.com/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz#71c2718c52b45fd49dbeee88634b3a60ceab42a6"
   integrity sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==
+
+ws@^8.13.0:
+  version "8.13.0"
+  resolved "https://registry.npmmirror.com/ws/-/ws-8.13.0.tgz#9a9fb92f93cf41512a0735c8f4dd09b8a1211cd0"
+  integrity sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==
 
 ylru@^1.2.0:
   version "1.3.2"
