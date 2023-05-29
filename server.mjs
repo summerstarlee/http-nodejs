@@ -1,6 +1,15 @@
-import { createServer } from 'http';
 
-createServer((req, res) => {
-  res.write('Hello World!');
-  res.end();
-}).listen(process.env.PORT);
+import Koa  from 'koa'
+const app = new Koa();
+// import router from './routes/index.mjs'
+
+
+// router(app)
+
+app.use(async ctx => {
+    ctx.body = 'Hello World';
+  });
+
+app.listen(process.env.PORT, () => {
+    console.log(`koa app listening on port ${process.env.PORT}`)
+});
