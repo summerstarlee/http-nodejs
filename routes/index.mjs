@@ -41,11 +41,11 @@ router.get('/create', async (ctx, next) => {
         method: 'GET',
     })
 
-
+    console.log(1111);
     console.log(res);
 
     
-    ctx.body = {"data": res}
+    ctx.body = res
 })
 
 export  default (app) => {
