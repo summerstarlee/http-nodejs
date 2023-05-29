@@ -42,10 +42,9 @@ router.get('/create', async (ctx, next) => {
     })
 
     console.log(1111);
-    console.log(res.json());
 
     
-    ctx.body = res.json()
+    ctx.body = await res.json()
 })
 
 export  default (app) => {
