@@ -45,7 +45,7 @@ router.get('/create', async (ctx, next) => {
     console.log(res);
 
     
-    ctx.body = {"create": "create 🚅"}
+    ctx.body = {"data": res}
 })
 
 export  default (app) => {
