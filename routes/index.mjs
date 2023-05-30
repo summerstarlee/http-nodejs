@@ -1,28 +1,23 @@
 import Router from 'koa-router'
-import fetch from 'node-fetch'
 import RandomAddress from "../utils/RandomAddress.mjs";
 const router = Router()
+import WebSocketClient from '../websocket-client.mjs'
 
 
 
-router.get('/', (ctx, next) => {
-    console.log('---- request / -----');
-    ctx.body = 'Choo Choo! Welcome to your Express app 🚅'
-})
 
-
-
-router.get('/create', async (ctx, next) => {
-    console.log('---- create / -----', ctx.headers);
-        //构建 fetch 参数
-        let fp = {
-            headers: {}
-        }
+// 创建聊天
+router.get('/turing/conversation/create', async (ctx, next) => {
+    console.log("创建聊天");
+    //构建 fetch 参数
+    let fp = {
+        headers: {}
+    }
 
     //     //保留头部信息
     let reqHeaders = ctx.headers;
 
-    let dropHeaders = ["user-agent", "accept", "accept-language","Connection","Upgrade"];
+    let dropHeaders = ["user-agent", "accept", "accept-language", "Connection", "Upgrade"];
 
     for (let h of dropHeaders) {
         if (reqHeaders[h]) {
@@ -40,15 +35,19 @@ router.get('/create', async (ctx, next) => {
         headers: fp.headers,
         method: 'GET',
     })
+    const json = await res.json()
 
-    console.log(1111);
+    console.log('----- json ----', json);
 
-    
-    ctx.body = await res.json()
+    // ctx.body = json
+
+    const ws = WebSocketClient(ctx, httpHeaders, json)
+
+    ctx.body = "222"
 })
 
-export  default (app) => {
+export default (app) => {
     app
-    .use(router.routes())
-    .use(router.allowedMethods())
+        .use(router.routes())
+        .use(router.allowedMethods())
 }
