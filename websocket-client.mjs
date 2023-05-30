@@ -28,6 +28,7 @@ const WebSocketClient = (ctx, { conversationId, clientId, conversationSignature 
 
 
   ws.on('open', () => {
+    console.log('--- open ----');
     ws.send(`{"protocol":"json","version":1}${terminalChar}`)
   })
 
@@ -55,7 +56,9 @@ const WebSocketClient = (ctx, { conversationId, clientId, conversationSignature 
 
     if (stage === 0) {
       ws.send(`{"type":6}${terminalChar}`)
-      const params = getObj(true, chat, conversationSignature, clientId, conversationId,)
+      const params = getObj(true, chat, conversationSignature, clientId, conversationId)
+
+      console.log('--- 根据会话 建立通信 ---', params);
 
       ws.send(`${JSON.stringify(params)}${terminalChar}`)
       ++stage
