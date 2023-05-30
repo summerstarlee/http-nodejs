@@ -48,7 +48,7 @@ const WebSocketClient = (ctx, headers, { conversationId, clientId, conversationS
 
     if (stage === 0) {
       ws.send(`{"type":6}${terminalChar}`)
-      const params = getObj(isStartOfSession, chat, conversationSignature, clientId, conversationId,)
+      const params = getObj(true, chat, conversationSignature, clientId, conversationId,)
 
       ws.send(`${JSON.stringify(params)}${terminalChar}`)
       ++stage
