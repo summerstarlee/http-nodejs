@@ -15,7 +15,7 @@ export const getObj = (
     conversationSignature,
     participant,
     conversationId,
-    invocationId,
+    invocationId = '1',
     tone = "professional",
     length = "short",
     format = "paragraph"
