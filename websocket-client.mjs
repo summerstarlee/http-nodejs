@@ -106,7 +106,7 @@ const WebSocketClient = (ctx, { conversationId, clientId, conversationSignature 
           if (!isFulfilled) {
             isFulfilled = true
 
-            console.log(3333, result);
+            console.log(3333, message);
           }
 
           cleanup()
