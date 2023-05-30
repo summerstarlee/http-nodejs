@@ -35,15 +35,15 @@ router.get('/turing/conversation/create', async (ctx, next) => {
         headers: fp.headers,
         method: 'GET',
     })
-    const json = await res.json()
+    // const json = await res.json()
 
-    console.log('----- json ----', json);
+    // console.log('----- json ----', json);
 
-    // ctx.body = json
+    // // ctx.body = json
 
-    const ws = WebSocketClient(ctx, httpHeaders, json)
+    // const ws = WebSocketClient(ctx, httpHeaders, json)
 
-    ctx.body = "222"
+    ctx.body = await res.json()
 })
 
 export default (app) => {
