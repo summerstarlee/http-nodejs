@@ -37,15 +37,8 @@ router.get('/turing/conversation/create', async (ctx, next) => {
     })
     const json = await res.json()
 
-    const h = {
-        Host: 'sydney.bing.com',
-        Origin: 'https://www.bing.com',
-        'Cache-Control': 'no-cache'
-    }
+    WebSocketClient(ctx, h, json)
 
-    const ws = WebSocketClient(ctx, h, json)
-
-    ctx.body = json
 })
 
 export default (app) => {

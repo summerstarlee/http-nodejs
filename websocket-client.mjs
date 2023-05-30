@@ -1,15 +1,22 @@
-import crypto from 'node:crypto'
 import WebSocket from 'ws';
 import { getObj } from './utils/ChatOptionsSets_Write.mjs';
 
 const terminalChar = '\u001e'
 
-const WebSocketClient = (ctx, headers, { conversationId, clientId, conversationSignature }) => {
+const WebSocketClient = (ctx, { conversationId, clientId, conversationSignature }) => {
+
+  console.log('------ 建立魔法链接 --------');
   const { chat } = ctx.request.body
   const ws = new WebSocket('wss://sydney.bing.com/sydney/ChatHub', {
     perMessageDeflate: false,
-    headers: headers
+    headers: {
+      Host: 'sydney.bing.com',
+      Origin: 'https://www.bing.com',
+      'Cache-Control': 'no-cache'
+    }
   });
+
+  console.log('------ 建立魔法链接 11111--------');
 
   const cleanup = () => {
     ws.close()
@@ -110,7 +117,7 @@ const WebSocketClient = (ctx, headers, { conversationId, clientId, conversationS
     }
   })
 
-  return ws
+  ctx.body = "demo"
 }
 
 export default WebSocketClient
