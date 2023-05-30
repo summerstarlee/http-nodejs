@@ -25,6 +25,7 @@ const WebSocketClient = (ctx, { conversationId, clientId, conversationSignature 
 
   let stage = 0
 
+  let isFulfilled = false
 
 
   ws.on('open', () => {
