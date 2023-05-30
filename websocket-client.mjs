@@ -59,7 +59,7 @@ const WebSocketClient = (ctx, { conversationId, clientId, conversationSignature 
       ws.send(`{"type":6}${terminalChar}`)
       const params = getObj(true, chat, conversationSignature, clientId, conversationId)
 
-      console.log('--- 根据会话 建立通信 ---', params);
+      console.log('--- 根据会话 建立通信 ---');
 
       ws.send(`${JSON.stringify(params)}${terminalChar}`)
       ++stage

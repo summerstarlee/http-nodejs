@@ -17,7 +17,7 @@ router.get('/turing/conversation/create', async (ctx, next) => {
     //     //保留头部信息
     let reqHeaders = ctx.headers;
 
-    let dropHeaders = ["user-agent", "accept", "accept-language", "Connection", "Upgrade", 'cookies'];
+    let dropHeaders = ["user-agent", "accept", "accept-language", "Connection", "Upgrade", 'Cookie'];
 
     for (let h of dropHeaders) {
         if (reqHeaders[h]) {
