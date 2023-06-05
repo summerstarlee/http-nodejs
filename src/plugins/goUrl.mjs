@@ -51,9 +51,8 @@ const goUrl = async (url, ctx) => {
         headers,
     })
 
-    console.log(6666, res);
 
-    return res
+
+    ctx.body = await res.json()
 }
 
-export default goUrl

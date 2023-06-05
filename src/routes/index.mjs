@@ -9,8 +9,7 @@ import goUrl from '../plugins/goUrl.mjs'
 
 // 创建聊天
 router.get('/turing/conversation/create', async (ctx, next) => {
-    const res = await goUrl('https://www.bing.com/turing/conversation/create', ctx)
-    ctx.body = await res.json()
+    goUrl('https://www.bing.com/turing/conversation/create', ctx)
 })
 
 export default (app) => {
