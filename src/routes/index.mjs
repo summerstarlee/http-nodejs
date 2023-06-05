@@ -1,15 +1,32 @@
 import Router from 'koa-router'
-import RandomAddress from "../utils/RandomAddress.mjs";
 const router = Router()
-import WebSocketClient from '../websocket-client.mjs'
-
-import goUrl from '../plugins/goUrl.mjs'
-
 
 
 // 创建聊天
 router.get('/turing/conversation/create', async (ctx, next) => {
-    goUrl('https://www.bing.com/turing/conversation/create', ctx)
+    const headers = {}
+
+    //保留头部信息
+    let reqHeaders = ctx.headers;
+
+    console.log('----reqHeaders ---', reqHeaders);
+
+    let dropHeaders = ["user-agent", "accept", "accept-language"];
+
+    for (let h of dropHeaders) {
+        if (reqHeaders[h]) {
+            headers[h] = reqHeaders[h]
+        }
+    }
+    console.log(1111);
+    headers['X-forwarded-for'] = reqHeaders.randomAddress || "12.24.144.227"
+
+    const res = await fetch("https://www.bing.com/turing/conversation/create", {
+        headers,
+    })
+
+    ctx.body = await res.json()
+
 })
 
 export default (app) => {
