@@ -1,5 +1,4 @@
-
-import Koa  from 'koa'
+import Koa from 'koa'
 import websockify from 'koa-websocket'
 import bodyParser from 'koa-bodyparser'
 const app = websockify(new Koa());

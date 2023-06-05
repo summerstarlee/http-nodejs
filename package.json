@@ -5,7 +5,8 @@
   "author": "Aiden Bai",
   "license": "MIT",
   "scripts": {
-    "start": "node server.mjs"
+    "dev": "node src/main.mjs",
+    "start": "node src/main.mjs"
   },
   "dependencies": {
     "bing-chat": "^0.2.3",
