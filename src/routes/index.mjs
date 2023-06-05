@@ -4,6 +4,9 @@ const router = Router()
 
 // 创建聊天
 router.get('/turing/conversation/create', async (ctx, next) => {
+
+    console.log('---- 创建魔法链接 -----');
+
     const headers = {}
 
     //保留头部信息
@@ -18,7 +21,6 @@ router.get('/turing/conversation/create', async (ctx, next) => {
             headers[h] = reqHeaders[h]
         }
     }
-    console.log(1111);
     headers['X-forwarded-for'] = reqHeaders.randomAddress || "12.24.144.227"
 
     const res = await fetch("https://www.bing.com/turing/conversation/create", {
