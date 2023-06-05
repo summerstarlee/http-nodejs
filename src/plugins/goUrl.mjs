@@ -51,6 +51,8 @@ const goUrl = async (url, ctx) => {
         headers,
     })
 
+    console.log(6666, res);
+
     return res
 }
 

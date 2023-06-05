@@ -12,7 +12,6 @@ router.get('/turing/conversation/create', async (ctx, next) => {
     console.log("创建聊天");
     const res = await goUrl('https://www.bing.com/turing/conversation/create', ctx)
 
-    console.log('res');
 
     ctx.body = await res.json()
 
