@@ -16,14 +16,14 @@ const WebSocketClient = (headers, ctx) => {
   })
 
   ws.on('message', (res) => {
-    console.log('--- ws  message----', res.toString());
-    ctx.websocket.send(res.toString())
+    console.log('--- ws  message----', res);
+    ctx.websocket.send(res)
   })
 
 
   ctx.websocket.on('message', (res) => {
-    console.log('--- ctx.ws  message----', res.toString());
-    ws.send(res.toString())
+    console.log('--- ctx.ws  message----', res);
+    ws.send(res)
   })
 
 }
