@@ -1,6 +1,6 @@
 import WebSocket from 'ws';
 
-const WebSocketServer = () => {
+const WebSocketServer = (headers) => {
   const ws = new WebSocket('wss://sydney.bing.com/sydney/ChatHub', {
     perMessageDeflate: false,
     headers: headers
