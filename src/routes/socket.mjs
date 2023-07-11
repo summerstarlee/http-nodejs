@@ -1,6 +1,7 @@
 import Router from 'koa-router'
 const router = Router()
 import WebSocketClient from '../websocket-client.mjs'
+import RandomAddress from '../utils/RandomAddress.mjs'
 
 
 // 创建聊天
@@ -22,7 +23,7 @@ router.all('/sydney/ChatHub', ctx => {
     httpHeaders.Host = "sydney.bing.com"
     httpHeaders.Origin = "https://www.bing.com"
     httpHeaders['Cache-Control'] = "no-cache"
-    httpHeaders['X-forwarded-for'] = randomAddress
+    httpHeaders['X-forwarded-for'] = RandomAddress.randomAddress
 
     WebSocketClient(httpHeaders, ctx)
 })
