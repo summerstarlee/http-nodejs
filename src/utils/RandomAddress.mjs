@@ -6423,7 +6423,7 @@ function getRndInteger(min, max) {
 }
 
 
-class RandomAddress{
+class RandomAddress {
     static _randomAddress;
     static get randomAddress() {
         return this._randomAddress;
@@ -6431,20 +6431,20 @@ class RandomAddress{
 
     static set randomAddress(value) {
         this._randomAddress = value;
-        console.log("随机地址设置为"+value);
+        console.log("随机地址设置为" + value);
     }
 }
 
-let ipc = ipList[getRndInteger(0,ipList.length)];
+let ipc = ipList[getRndInteger(0, ipList.length)];
 let ipb = ipc.split('->');
 let startIps = ipb[0].split('.');
 let endIps = ipb[1].split('.');
 let ip = '';
 for (let i = 0; i < 4; i++) {
-    ip = ip+'.'+getRndInteger(parseInt(startIps[i]),parseInt(endIps[i]));
+    ip = ip + '.' + getRndInteger(parseInt(startIps[i]), parseInt(endIps[i]));
 }
-if(ip.startsWith('.')){
-    ip = ip.replace('.','');
+if (ip.startsWith('.')) {
+    ip = ip.replace('.', '');
 }
 RandomAddress.randomAddress = ip;
 

@@ -5,7 +5,7 @@ import RandomAddress from '../utils/RandomAddress.mjs'
 
 // 创建聊天
 router.get('/turing/conversation/create', async (ctx, next) => {
-    console.log('---- 创建魔法链接 -----');
+    console.log('---- 创建聊天 -----');
     const headers = {}
     //保留头部信息
     let reqHeaders = ctx.headers;

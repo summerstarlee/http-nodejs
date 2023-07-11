@@ -4,8 +4,9 @@ import { getObj } from './utils/ChatOptionsSets_Write.mjs';
 const terminalChar = '\u001e'
 
 const WebSocketClient = (headers, ctx) => {
+  console.log('调用 socket 进行通话 第2步');
 
-  console.log('------ 建立魔法链接 --------');
+
   const ws = new WebSocket('wss://sydney.bing.com/sydney/ChatHub', {
     perMessageDeflate: false,
     headers

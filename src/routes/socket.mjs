@@ -5,7 +5,7 @@ import WebSocketClient from '../websocket-client.mjs'
 
 // 创建聊天
 router.all('/sydney/ChatHub', ctx => {
-    console.log('创建魔法聊天连接!!!');
+    console.log('调用 socket 进行通话 第一步');
 
     const { randomAddress } = ctx.query
 
@@ -34,3 +34,5 @@ export default (app) => {
         .use(router.routes())
         .use(router.allowedMethods())
 }
+
+// https://www.bing.com
