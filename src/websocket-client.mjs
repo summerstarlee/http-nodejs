@@ -1,5 +1,4 @@
 import WebSocket from 'ws';
-import { getObj } from './utils/ChatOptionsSets_Write.mjs';
 
 const terminalChar = '\u001e'
 
@@ -17,14 +16,16 @@ const WebSocketClient = (headers, ctx) => {
   })
 
   ws.on('message', (res) => {
-    console.log('--- ws  message----', res.toString());
     ctx.websocket.send(res.toString())
   })
 
 
   ctx.websocket.on('message', (res) => {
-    console.log('--- ctx.ws  message----', res.toString());
-    ws.send(res.toString())
+    if(ws.readyState === WebSocket.OPEN) {
+      ws.send(res.toString())
+    }else {
+      console.log('服务器未连接!!!')
+    }
   })
 
 }
