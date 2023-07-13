@@ -6425,27 +6425,28 @@ function getRndInteger(min, max) {
 
 class RandomAddress {
     static _randomAddress;
-    static get randomAddress() {
+    static get randomIp() {
         return this._randomAddress;
     }
 
-    static set randomAddress(value) {
-        this._randomAddress = value;
-        console.log("随机地址设置为" + value);
+    reset() {
+        let ipc = ipList[getRndInteger(0, ipList.length)];
+        let ipb = ipc.split('->');
+        let startIps = ipb[0].split('.');
+        let endIps = ipb[1].split('.');
+        let ip = '';
+        for (let i = 0; i < 4; i++) {
+            ip = ip + '.' + getRndInteger(parseInt(startIps[i]), parseInt(endIps[i]));
+        }
+        if (ip.startsWith('.')) {
+            ip = ip.replace('.', '');
+        }
+
+        console.log("随机地址设置为" + ip);
+        this.randomIp = ip;
     }
 }
 
-let ipc = ipList[getRndInteger(0, ipList.length)];
-let ipb = ipc.split('->');
-let startIps = ipb[0].split('.');
-let endIps = ipb[1].split('.');
-let ip = '';
-for (let i = 0; i < 4; i++) {
-    ip = ip + '.' + getRndInteger(parseInt(startIps[i]), parseInt(endIps[i]));
-}
-if (ip.startsWith('.')) {
-    ip = ip.replace('.', '');
-}
-RandomAddress.randomAddress = ip;
+
 
 export default RandomAddress;

@@ -1,6 +1,7 @@
 import Router from 'koa-router'
 const router = Router()
 import RandomAddress from '../utils/RandomAddress.mjs'
+const randomAddress = new RandomAddress()
 
 
 // 创建聊天
@@ -15,7 +16,9 @@ router.get('/turing/conversation/create', async (ctx, next) => {
             headers[h] = reqHeaders[h]
         }
     }
-    headers['X-forwarded-for'] = RandomAddress.randomAddress
+
+    randomAddress.reset()
+    headers['X-forwarded-for'] = randomAddress.randomIp
 
     const res = await fetch("https://www.bing.com/turing/conversation/create", {
         headers,
